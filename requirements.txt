@@ -1,0 +1,8 @@
+youtube-transcript-api
+transformers
+sentencepiece
+torch
+openai-whisper
+pydub
+streamlit
+flask

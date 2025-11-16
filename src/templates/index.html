@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GuruInsight AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>GuruInsight AI 🎧</h1>
+        <p>Analyze any YouTube video + extract keyword-based summary</p>
+
+        <form id="analyzeForm">
+            <label>YouTube Video URL:</label>
+            <input type="text" name="url" id="url" required>
+
+            <label>Keyword to Search:</label>
+            <input type="text" name="keyword" id="keyword" required>
+
+            <button type="submit">Analyze</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById("analyzeForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append("url", document.getElementById("url").value);
+            formData.append("keyword", document.getElementById("keyword").value);
+
+            document.getElementById("result").innerHTML = "<p>Processing... This may take 20-40 seconds.</p>";
+
+            const response = await fetch("/analyze", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            let html = "<h2>Result</h2>";
+
+            if (!data.keyword_found) {
+                html += `<p><b>Keyword '${data.keyword}' not found in the video.</b></p>`;
+            } else {
+                html += `
+                    <p><b>Keyword:</b> ${data.keyword}</p>
+                    <p><b>Mentions:</b> ${data.mentions}</p>
+                    <h3>Summary:</h3>
+                    <p>${data.summary}</p>
+                `;
+            }
+
+            document.getElementById("result").innerHTML = html;
+        });
+    </script>
+</body>
+</html>
