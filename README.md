@@ -8,7 +8,7 @@ This solves a real problem:
 👉 Understanding what exactly was said
 👉 Getting this summary instantly
 
-🔥 Features
+# 🔥 Features
 
 🎬 Fetch YouTube video transcripts (TimedText + VTT subtitles)
 ⚡ Whisper fallback for videos without transcripts
@@ -19,24 +19,7 @@ This solves a real problem:
 ⚡ Fast processing using optimized TimedText + VTT scraping
 📌 Works for ALL YouTube videos (podcasts, interviews, news, speeches)
 
-
-# 🏗 Project Architecture
-src/
-│── server.py            # Flask web server
-│── app.py               # Core pipeline (analysis)
-│── extract.py           # Transcript extraction (TimedText → API → Whisper)
-│── search.py            # Keyword search + context extraction
-│── summarize.py         # NLP summarization (T5)
-│
-templates/
-│── index.html           # Frontend UI
-static/
-│── style.css            # Styling
-requirements.txt
-README.md
-
-
-🧠 How It Works
+# 🧠 How It Works
 
 User enters YouTube URL + keyword
 System fetches transcript using:
@@ -49,7 +32,7 @@ Cleaned text passed to Transformer summarizer
 Summary displayed on UI
 
 
-🔧 Tech Stack
+# 🔧 Tech Stack
 
 Python
 Flask
@@ -58,7 +41,7 @@ YouTube TimedText Parser
 Whisper ASR
 HTML + CSS
 
-▶️ Run the Project Locally
+# ▶️ Run the Project Locally
 1. Create virtual environment (Python 3.10 recommended)
    python -m venv venv
    venv\Scripts\activate
@@ -73,7 +56,7 @@ HTML + CSS
 4. Open browser
    http://127.0.0.1:5000
 
-🎯 Usage Example
+# 🎯 Usage Example
 Enter:
 YouTube URL: https://youtube.com/...
 Keyword: Narendra Modi
@@ -84,7 +67,7 @@ Keyword Found: Yes/No
 Mentions: X times
 Summary: “The speaker mentioned Modi in context of…”
 
-📌 Future Enhancements
+# 📌 Future Enhancements
 
 Multi-keyword batch analysis
 Support for Hindi/Marathi subtitles
@@ -92,7 +75,7 @@ Speaker diarization (who said what?)
 Deploy on Render / Railway
 Add JWT authentication
 
-👨‍💻 Author
+# 👨‍💻 Author
 
 Guru Dahiphale
 AI Engineer | Data Science | NLP | Deep Learning
